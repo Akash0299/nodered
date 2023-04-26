@@ -1,0 +1,1624 @@
+[
+    {
+        "id": "1cbfc5021b2aa8e7",
+        "type": "tab",
+        "label": "Flow 1",
+        "disabled": false,
+        "info": "",
+        "env": []
+    },
+    {
+        "id": "cdeeb07b6bbfec5b",
+        "type": "inject",
+        "z": "1cbfc5021b2aa8e7",
+        "name": "",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "",
+        "payloadType": "date",
+        "x": 80,
+        "y": 220,
+        "wires": [
+            [
+                "43b3c2c905356a82",
+                "ce64693b0892f175",
+                "50184122c07bdfaa",
+                "ded8eda77d29e76a",
+                "1b88bd82fd017bdd",
+                "d73bc118d14fe662",
+                "a906c39f22d94076",
+                "3dfb4a910c5e4370",
+                "6ba8ce9bebb7f14a",
+                "44b9d8ac5003ec1c",
+                "bf7a4946b9cd7329",
+                "55996b08542fef53",
+                "db8b405dade52861",
+                "d4c25f0dd7689714",
+                "eeb183de21408f3e",
+                "50936652c5ea20eb",
+                "4966f08cf67ccee4",
+                "d47d0b3d85fb8946",
+                "36c652bb4a221925",
+                "d53f1160b0f15fba",
+                "e40ea5821fd0e2ea",
+                "c3fa19b45cf853ba",
+                "b1772a7024dc422f",
+                "43ee43d07badb4f6",
+                "521ca24a36211ea9",
+                "432c4549d463c8c4"
+            ]
+        ]
+    },
+    {
+        "id": "43b3c2c905356a82",
+        "type": "function",
+        "z": "1cbfc5021b2aa8e7",
+        "name": "function 1",
+        "func": "function getRandomFloat(min, max) {\n    return Math.random() * (max - min) + min;\n}\n\nmsg.payload = getRandomFloat(-40, 100).toFixed(1)\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 600,
+        "y": 20,
+        "wires": [
+            [
+                "ca3de81b13707916"
+            ]
+        ]
+    },
+    {
+        "id": "ca3de81b13707916",
+        "type": "http request",
+        "z": "1cbfc5021b2aa8e7",
+        "name": "TempSensor1",
+        "method": "POST",
+        "ret": "txt",
+        "paytoqs": "ignore",
+        "url": "http://localhost:59986/api/v2/resource/TempSensor1/temperature",
+        "tls": "",
+        "persist": false,
+        "proxy": "",
+        "insecureHTTPParser": false,
+        "authType": "",
+        "senderr": false,
+        "headers": [],
+        "x": 800,
+        "y": 20,
+        "wires": [
+            [
+                "bf3a06ccc6f2f85d"
+            ]
+        ]
+    },
+    {
+        "id": "c5b587534a9089a4",
+        "type": "http request",
+        "z": "1cbfc5021b2aa8e7",
+        "name": "LightSensor1",
+        "method": "POST",
+        "ret": "txt",
+        "paytoqs": "ignore",
+        "url": "http://localhost:59986/api/v2/resource/LightSensor1/light",
+        "tls": "",
+        "persist": false,
+        "proxy": "",
+        "insecureHTTPParser": false,
+        "authType": "",
+        "senderr": false,
+        "headers": [],
+        "x": 790,
+        "y": 160,
+        "wires": [
+            [
+                "ee1e979d1c2e4240"
+            ]
+        ]
+    },
+    {
+        "id": "ee1e979d1c2e4240",
+        "type": "debug",
+        "z": "1cbfc5021b2aa8e7",
+        "name": "debug 3",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "true",
+        "targetType": "full",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 980,
+        "y": 160,
+        "wires": []
+    },
+    {
+        "id": "d722c35d206caf20",
+        "type": "http request",
+        "z": "1cbfc5021b2aa8e7",
+        "name": "HumidSensor1",
+        "method": "POST",
+        "ret": "txt",
+        "paytoqs": "ignore",
+        "url": "http://localhost:59986/api/v2/resource/HumidSensor1/humidity",
+        "tls": "",
+        "persist": false,
+        "proxy": "",
+        "insecureHTTPParser": false,
+        "authType": "",
+        "senderr": false,
+        "headers": [],
+        "x": 800,
+        "y": 80,
+        "wires": [
+            [
+                "2bc37c7f1b4822d5"
+            ]
+        ]
+    },
+    {
+        "id": "2bc37c7f1b4822d5",
+        "type": "debug",
+        "z": "1cbfc5021b2aa8e7",
+        "name": "debug 4",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "true",
+        "targetType": "full",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 980,
+        "y": 80,
+        "wires": []
+    },
+    {
+        "id": "95193034e83ae91b",
+        "type": "http request",
+        "z": "1cbfc5021b2aa8e7",
+        "name": "MotionSensor1",
+        "method": "POST",
+        "ret": "txt",
+        "paytoqs": "ignore",
+        "url": "http://localhost:59986/api/v2/resource/MotionSensor1/motion",
+        "tls": "",
+        "persist": false,
+        "proxy": "",
+        "insecureHTTPParser": false,
+        "authType": "",
+        "senderr": false,
+        "headers": [],
+        "x": 800,
+        "y": 220,
+        "wires": [
+            [
+                "e8ad682563d5db90"
+            ]
+        ]
+    },
+    {
+        "id": "e8ad682563d5db90",
+        "type": "debug",
+        "z": "1cbfc5021b2aa8e7",
+        "name": "debug 5",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "true",
+        "targetType": "full",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 980,
+        "y": 220,
+        "wires": []
+    },
+    {
+        "id": "89a8216504f14c10",
+        "type": "http request",
+        "z": "1cbfc5021b2aa8e7",
+        "name": "ProxSensor1",
+        "method": "POST",
+        "ret": "txt",
+        "paytoqs": "ignore",
+        "url": "http://localhost:59986/api/v2/resource/ProxSensor1/distance",
+        "tls": "",
+        "persist": false,
+        "proxy": "",
+        "insecureHTTPParser": false,
+        "authType": "",
+        "senderr": false,
+        "headers": [],
+        "x": 790,
+        "y": 280,
+        "wires": [
+            [
+                "d9cd824ad96d6876"
+            ]
+        ]
+    },
+    {
+        "id": "d9cd824ad96d6876",
+        "type": "debug",
+        "z": "1cbfc5021b2aa8e7",
+        "name": "debug 6",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "true",
+        "targetType": "full",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 980,
+        "y": 280,
+        "wires": []
+    },
+    {
+        "id": "821833ad54209d30",
+        "type": "http request",
+        "z": "1cbfc5021b2aa8e7",
+        "name": "PressureSensor1",
+        "method": "POST",
+        "ret": "txt",
+        "paytoqs": "ignore",
+        "url": "http://localhost:59986/api/v2/resource/PressureSensor1/pressure",
+        "tls": "",
+        "persist": false,
+        "proxy": "",
+        "insecureHTTPParser": false,
+        "authType": "",
+        "senderr": false,
+        "headers": [],
+        "x": 810,
+        "y": 340,
+        "wires": [
+            [
+                "179542cc13b68551"
+            ]
+        ]
+    },
+    {
+        "id": "179542cc13b68551",
+        "type": "debug",
+        "z": "1cbfc5021b2aa8e7",
+        "name": "debug 7",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "true",
+        "targetType": "full",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 1000,
+        "y": 340,
+        "wires": []
+    },
+    {
+        "id": "ec2dcd3f0378c9cf",
+        "type": "http request",
+        "z": "1cbfc5021b2aa8e7",
+        "name": "Accmeter1-x",
+        "method": "POST",
+        "ret": "txt",
+        "paytoqs": "ignore",
+        "url": "http://localhost:59986/api/v2/resource/Accmeter1/x",
+        "tls": "",
+        "persist": false,
+        "proxy": "",
+        "insecureHTTPParser": false,
+        "authType": "",
+        "senderr": false,
+        "headers": [],
+        "x": 850,
+        "y": 400,
+        "wires": [
+            [
+                "5daf4fb91374f71d"
+            ]
+        ]
+    },
+    {
+        "id": "5daf4fb91374f71d",
+        "type": "debug",
+        "z": "1cbfc5021b2aa8e7",
+        "name": "debug 8",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "true",
+        "targetType": "full",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 1040,
+        "y": 400,
+        "wires": []
+    },
+    {
+        "id": "24238e841f3d34ae",
+        "type": "http request",
+        "z": "1cbfc5021b2aa8e7",
+        "name": "Gyroscope1-x",
+        "method": "POST",
+        "ret": "txt",
+        "paytoqs": "ignore",
+        "url": "http://localhost:59986/api/v2/resource/Gyroscope1/x",
+        "tls": "",
+        "persist": false,
+        "proxy": "",
+        "insecureHTTPParser": false,
+        "authType": "",
+        "senderr": false,
+        "headers": [],
+        "x": 860,
+        "y": 580,
+        "wires": [
+            [
+                "4d17664bd5c2b0da"
+            ]
+        ]
+    },
+    {
+        "id": "4d17664bd5c2b0da",
+        "type": "debug",
+        "z": "1cbfc5021b2aa8e7",
+        "name": "debug 9",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "true",
+        "targetType": "full",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 1040,
+        "y": 580,
+        "wires": []
+    },
+    {
+        "id": "bf3a06ccc6f2f85d",
+        "type": "debug",
+        "z": "1cbfc5021b2aa8e7",
+        "name": "debug 2",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "true",
+        "targetType": "full",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 980,
+        "y": 20,
+        "wires": []
+    },
+    {
+        "id": "ce64693b0892f175",
+        "type": "function",
+        "z": "1cbfc5021b2aa8e7",
+        "name": "function 2",
+        "func": "function getRandomFloat(min, max) {\n    return Math.random() * (max - min) + min;\n}\n\nmsg.payload = getRandomFloat(0, 100).toFixed(1)\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 600,
+        "y": 80,
+        "wires": [
+            [
+                "d722c35d206caf20"
+            ]
+        ]
+    },
+    {
+        "id": "50184122c07bdfaa",
+        "type": "function",
+        "z": "1cbfc5021b2aa8e7",
+        "name": "function 3",
+        "func": "function getRandomFloat(min, max) {\n    return Math.random() * (max - min) + min;\n}\n\nmsg.payload = getRandomFloat(0,100000).toFixed(1)\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 600,
+        "y": 160,
+        "wires": [
+            [
+                "c5b587534a9089a4"
+            ]
+        ]
+    },
+    {
+        "id": "ded8eda77d29e76a",
+        "type": "function",
+        "z": "1cbfc5021b2aa8e7",
+        "name": "function 4",
+        "func": "\nmsg.payload = Math.random() > 0.5;\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 600,
+        "y": 220,
+        "wires": [
+            [
+                "95193034e83ae91b"
+            ]
+        ]
+    },
+    {
+        "id": "1b88bd82fd017bdd",
+        "type": "function",
+        "z": "1cbfc5021b2aa8e7",
+        "name": "function 5",
+        "func": "function getRandomFloat(min, max) {\n    return Math.random() * (max - min) + min;\n}\n\nmsg.payload = getRandomFloat(0, 1000).toFixed(1)\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 600,
+        "y": 280,
+        "wires": [
+            [
+                "89a8216504f14c10"
+            ]
+        ]
+    },
+    {
+        "id": "d73bc118d14fe662",
+        "type": "function",
+        "z": "1cbfc5021b2aa8e7",
+        "name": "function 6",
+        "func": "function getRandomFloat(min, max) {\n    return Math.random() * (max - min) + min;\n}\n\nmsg.payload = getRandomFloat(0,2000).toFixed(1)\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 600,
+        "y": 340,
+        "wires": [
+            [
+                "821833ad54209d30"
+            ]
+        ]
+    },
+    {
+        "id": "a906c39f22d94076",
+        "type": "function",
+        "z": "1cbfc5021b2aa8e7",
+        "name": "function 7",
+        "func": "function getRandomFloat(min, max) {\n    return Math.random() * (max - min) + min;\n}\n\nmsg.payload = getRandomFloat(-10, 10).toFixed(1)\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 660,
+        "y": 400,
+        "wires": [
+            [
+                "ec2dcd3f0378c9cf"
+            ]
+        ]
+    },
+    {
+        "id": "3dfb4a910c5e4370",
+        "type": "function",
+        "z": "1cbfc5021b2aa8e7",
+        "name": "function 8",
+        "func": "function getRandomFloat(min, max) {\n    return Math.random() * (max - min) + min;\n}\n\nmsg.payload = getRandomFloat(-10, 10).toFixed(1)\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 660,
+        "y": 580,
+        "wires": [
+            [
+                "24238e841f3d34ae"
+            ]
+        ]
+    },
+    {
+        "id": "6e5b473455a8bfb9",
+        "type": "http request",
+        "z": "1cbfc5021b2aa8e7",
+        "name": "Accmeter1-y",
+        "method": "POST",
+        "ret": "txt",
+        "paytoqs": "ignore",
+        "url": "http://localhost:59986/api/v2/resource/Accmeter1/y",
+        "tls": "",
+        "persist": false,
+        "proxy": "",
+        "insecureHTTPParser": false,
+        "authType": "",
+        "senderr": false,
+        "headers": [],
+        "x": 850,
+        "y": 460,
+        "wires": [
+            [
+                "1ca35462e677e199"
+            ]
+        ]
+    },
+    {
+        "id": "1ca35462e677e199",
+        "type": "debug",
+        "z": "1cbfc5021b2aa8e7",
+        "name": "debug 15",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "true",
+        "targetType": "full",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 1040,
+        "y": 460,
+        "wires": []
+    },
+    {
+        "id": "6ba8ce9bebb7f14a",
+        "type": "function",
+        "z": "1cbfc5021b2aa8e7",
+        "name": "function 12",
+        "func": "function getRandomFloat(min, max) {\n    return Math.random() * (max - min) + min;\n}\n\nmsg.payload = getRandomFloat(-10, 10).toFixed(1)\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 660,
+        "y": 460,
+        "wires": [
+            [
+                "6e5b473455a8bfb9"
+            ]
+        ]
+    },
+    {
+        "id": "2d56d93f974ae591",
+        "type": "http request",
+        "z": "1cbfc5021b2aa8e7",
+        "name": "Accmeter1-z",
+        "method": "POST",
+        "ret": "txt",
+        "paytoqs": "ignore",
+        "url": "http://localhost:59986/api/v2/resource/Accmeter1/z",
+        "tls": "",
+        "persist": false,
+        "proxy": "",
+        "insecureHTTPParser": false,
+        "authType": "",
+        "senderr": false,
+        "headers": [],
+        "x": 850,
+        "y": 520,
+        "wires": [
+            [
+                "bde4dac52d5df643"
+            ]
+        ]
+    },
+    {
+        "id": "bde4dac52d5df643",
+        "type": "debug",
+        "z": "1cbfc5021b2aa8e7",
+        "name": "debug 16",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "true",
+        "targetType": "full",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 1040,
+        "y": 520,
+        "wires": []
+    },
+    {
+        "id": "44b9d8ac5003ec1c",
+        "type": "function",
+        "z": "1cbfc5021b2aa8e7",
+        "name": "function 13",
+        "func": "function getRandomFloat(min, max) {\n    return Math.random() * (max - min) + min;\n}\n\nmsg.payload = getRandomFloat(-10, 10).toFixed(1)\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 660,
+        "y": 520,
+        "wires": [
+            [
+                "2d56d93f974ae591"
+            ]
+        ]
+    },
+    {
+        "id": "6079063f6ac41e5c",
+        "type": "http request",
+        "z": "1cbfc5021b2aa8e7",
+        "name": "Gyroscope1-y",
+        "method": "POST",
+        "ret": "txt",
+        "paytoqs": "ignore",
+        "url": "http://localhost:59986/api/v2/resource/Gyroscope1/y",
+        "tls": "",
+        "persist": false,
+        "proxy": "",
+        "insecureHTTPParser": false,
+        "authType": "",
+        "senderr": false,
+        "headers": [],
+        "x": 860,
+        "y": 620,
+        "wires": [
+            [
+                "27022bfa2167beb2"
+            ]
+        ]
+    },
+    {
+        "id": "27022bfa2167beb2",
+        "type": "debug",
+        "z": "1cbfc5021b2aa8e7",
+        "name": "debug 17",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "true",
+        "targetType": "full",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 1040,
+        "y": 620,
+        "wires": []
+    },
+    {
+        "id": "bf7a4946b9cd7329",
+        "type": "function",
+        "z": "1cbfc5021b2aa8e7",
+        "name": "function 14",
+        "func": "function getRandomFloat(min, max) {\n    return Math.random() * (max - min) + min;\n}\n\nmsg.payload = getRandomFloat(-10, 10).toFixed(1)\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 660,
+        "y": 620,
+        "wires": [
+            [
+                "6079063f6ac41e5c"
+            ]
+        ]
+    },
+    {
+        "id": "4964d61446bd7526",
+        "type": "http request",
+        "z": "1cbfc5021b2aa8e7",
+        "name": "Gyroscope1-z",
+        "method": "POST",
+        "ret": "txt",
+        "paytoqs": "ignore",
+        "url": "http://localhost:59986/api/v2/resource/Gyroscope1/z",
+        "tls": "",
+        "persist": false,
+        "proxy": "",
+        "insecureHTTPParser": false,
+        "authType": "",
+        "senderr": false,
+        "headers": [],
+        "x": 860,
+        "y": 660,
+        "wires": [
+            [
+                "99f70f4d49bd8ad3"
+            ]
+        ]
+    },
+    {
+        "id": "99f70f4d49bd8ad3",
+        "type": "debug",
+        "z": "1cbfc5021b2aa8e7",
+        "name": "debug 18",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "true",
+        "targetType": "full",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 1040,
+        "y": 660,
+        "wires": []
+    },
+    {
+        "id": "55996b08542fef53",
+        "type": "function",
+        "z": "1cbfc5021b2aa8e7",
+        "name": "function 15",
+        "func": "function getRandomFloat(min, max) {\n    return Math.random() * (max - min) + min;\n}\n\nmsg.payload = getRandomFloat(-10, 10).toFixed(1)\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 660,
+        "y": 660,
+        "wires": [
+            [
+                "4964d61446bd7526"
+            ]
+        ]
+    },
+    {
+        "id": "1c29173617041e45",
+        "type": "http request",
+        "z": "1cbfc5021b2aa8e7",
+        "name": "Magmeter1-x",
+        "method": "POST",
+        "ret": "txt",
+        "paytoqs": "ignore",
+        "url": "http://localhost:59986/api/v2/resource/Magmeter1/x",
+        "tls": "",
+        "persist": false,
+        "proxy": "",
+        "insecureHTTPParser": false,
+        "authType": "",
+        "senderr": false,
+        "headers": [],
+        "x": 830,
+        "y": 720,
+        "wires": [
+            [
+                "b36e4f9a7c0a6e5b"
+            ]
+        ]
+    },
+    {
+        "id": "b36e4f9a7c0a6e5b",
+        "type": "debug",
+        "z": "1cbfc5021b2aa8e7",
+        "name": "debug 19",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "true",
+        "targetType": "full",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 1020,
+        "y": 720,
+        "wires": []
+    },
+    {
+        "id": "db8b405dade52861",
+        "type": "function",
+        "z": "1cbfc5021b2aa8e7",
+        "name": "function 16",
+        "func": "function getRandomFloat(min, max) {\n    return Math.random() * (max - min) + min;\n}\n\nmsg.payload = getRandomFloat(-100, 100).toFixed(1)\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 640,
+        "y": 720,
+        "wires": [
+            [
+                "1c29173617041e45"
+            ]
+        ]
+    },
+    {
+        "id": "018d80761f9f1a74",
+        "type": "http request",
+        "z": "1cbfc5021b2aa8e7",
+        "name": "Magmeter1-y",
+        "method": "POST",
+        "ret": "txt",
+        "paytoqs": "ignore",
+        "url": "http://localhost:59986/api/v2/resource/Magmeter1/y",
+        "tls": "",
+        "persist": false,
+        "proxy": "",
+        "insecureHTTPParser": false,
+        "authType": "",
+        "senderr": false,
+        "headers": [],
+        "x": 830,
+        "y": 760,
+        "wires": [
+            [
+                "ea19d9226b726387"
+            ]
+        ]
+    },
+    {
+        "id": "ea19d9226b726387",
+        "type": "debug",
+        "z": "1cbfc5021b2aa8e7",
+        "name": "debug 20",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "true",
+        "targetType": "full",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 1020,
+        "y": 760,
+        "wires": []
+    },
+    {
+        "id": "d4c25f0dd7689714",
+        "type": "function",
+        "z": "1cbfc5021b2aa8e7",
+        "name": "function 17",
+        "func": "function getRandomFloat(min, max) {\n    return Math.random() * (max - min) + min;\n}\n\nmsg.payload = getRandomFloat(-100, 100).toFixed(1)\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 640,
+        "y": 760,
+        "wires": [
+            [
+                "018d80761f9f1a74"
+            ]
+        ]
+    },
+    {
+        "id": "8692d387e3d3d8c1",
+        "type": "http request",
+        "z": "1cbfc5021b2aa8e7",
+        "name": "Magmeter1-z",
+        "method": "POST",
+        "ret": "txt",
+        "paytoqs": "ignore",
+        "url": "http://localhost:59986/api/v2/resource/Magmeter1/z",
+        "tls": "",
+        "persist": false,
+        "proxy": "",
+        "insecureHTTPParser": false,
+        "authType": "",
+        "senderr": false,
+        "headers": [],
+        "x": 830,
+        "y": 800,
+        "wires": [
+            [
+                "6f5c18509d90eb12"
+            ]
+        ]
+    },
+    {
+        "id": "6f5c18509d90eb12",
+        "type": "debug",
+        "z": "1cbfc5021b2aa8e7",
+        "name": "debug 21",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "true",
+        "targetType": "full",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 1020,
+        "y": 800,
+        "wires": []
+    },
+    {
+        "id": "eeb183de21408f3e",
+        "type": "function",
+        "z": "1cbfc5021b2aa8e7",
+        "name": "function 18",
+        "func": "function getRandomFloat(min, max) {\n    return Math.random() * (max - min) + min;\n}\n\nmsg.payload = getRandomFloat(-100, 100).toFixed(1)\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 640,
+        "y": 800,
+        "wires": [
+            [
+                "8692d387e3d3d8c1"
+            ]
+        ]
+    },
+    {
+        "id": "336eb894ee668dfa",
+        "type": "http request",
+        "z": "1cbfc5021b2aa8e7",
+        "name": "GPSSensor1-lat",
+        "method": "POST",
+        "ret": "txt",
+        "paytoqs": "ignore",
+        "url": "http://localhost:59986/api/v2/resource/GPSSensor1/latitude",
+        "tls": "",
+        "persist": false,
+        "proxy": "",
+        "insecureHTTPParser": false,
+        "authType": "",
+        "senderr": false,
+        "headers": [],
+        "x": 820,
+        "y": 860,
+        "wires": [
+            [
+                "16613707def36c1b"
+            ]
+        ]
+    },
+    {
+        "id": "16613707def36c1b",
+        "type": "debug",
+        "z": "1cbfc5021b2aa8e7",
+        "name": "debug 22",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "true",
+        "targetType": "full",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 1000,
+        "y": 860,
+        "wires": []
+    },
+    {
+        "id": "4966f08cf67ccee4",
+        "type": "function",
+        "z": "1cbfc5021b2aa8e7",
+        "name": "function 19",
+        "func": "function getRandomFloat(min, max) {\n    return Math.random() * (max - min) + min;\n}\n\nmsg.payload = getRandomFloat(-90, 90).toFixed(1)\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 620,
+        "y": 860,
+        "wires": [
+            [
+                "336eb894ee668dfa"
+            ]
+        ]
+    },
+    {
+        "id": "7720708a6101ca4d",
+        "type": "http request",
+        "z": "1cbfc5021b2aa8e7",
+        "name": "GPSSensor1-long",
+        "method": "POST",
+        "ret": "txt",
+        "paytoqs": "ignore",
+        "url": "http://localhost:59986/api/v2/resource/GPSSensor1/longitude",
+        "tls": "",
+        "persist": false,
+        "proxy": "",
+        "insecureHTTPParser": false,
+        "authType": "",
+        "senderr": false,
+        "headers": [],
+        "x": 830,
+        "y": 900,
+        "wires": [
+            [
+                "4e8abd124ed34509"
+            ]
+        ]
+    },
+    {
+        "id": "4e8abd124ed34509",
+        "type": "debug",
+        "z": "1cbfc5021b2aa8e7",
+        "name": "debug 23",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "true",
+        "targetType": "full",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 1000,
+        "y": 900,
+        "wires": []
+    },
+    {
+        "id": "d47d0b3d85fb8946",
+        "type": "function",
+        "z": "1cbfc5021b2aa8e7",
+        "name": "function 20",
+        "func": "function getRandomFloat(min, max) {\n    return Math.random() * (max - min) + min;\n}\n\nmsg.payload = getRandomFloat(-180, 180).toFixed(1)\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 620,
+        "y": 900,
+        "wires": [
+            [
+                "7720708a6101ca4d"
+            ]
+        ]
+    },
+    {
+        "id": "89484e1a254867e5",
+        "type": "http request",
+        "z": "1cbfc5021b2aa8e7",
+        "name": "GPSSensor1-alt",
+        "method": "POST",
+        "ret": "txt",
+        "paytoqs": "ignore",
+        "url": "http://localhost:59986/api/v2/resource/GPSSensor1/altitude",
+        "tls": "",
+        "persist": false,
+        "proxy": "",
+        "insecureHTTPParser": false,
+        "authType": "",
+        "senderr": false,
+        "headers": [],
+        "x": 840,
+        "y": 940,
+        "wires": [
+            [
+                "de5fef82986624fa"
+            ]
+        ]
+    },
+    {
+        "id": "de5fef82986624fa",
+        "type": "debug",
+        "z": "1cbfc5021b2aa8e7",
+        "name": "debug 24",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "true",
+        "targetType": "full",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 1000,
+        "y": 940,
+        "wires": []
+    },
+    {
+        "id": "50936652c5ea20eb",
+        "type": "function",
+        "z": "1cbfc5021b2aa8e7",
+        "name": "function 21",
+        "func": "function getRandomFloat(min, max) {\n    return Math.random() * (max - min) + min;\n}\n\nmsg.payload = getRandomFloat(0, 10000).toFixed(1)\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 630,
+        "y": 940,
+        "wires": [
+            [
+                "89484e1a254867e5"
+            ]
+        ]
+    },
+    {
+        "id": "9842d96c30429508",
+        "type": "http request",
+        "z": "1cbfc5021b2aa8e7",
+        "name": "IRSensor1-temp",
+        "method": "POST",
+        "ret": "txt",
+        "paytoqs": "ignore",
+        "url": "http://localhost:59986/api/v2/resource/IRSensor1/temperature",
+        "tls": "",
+        "persist": false,
+        "proxy": "",
+        "insecureHTTPParser": false,
+        "authType": "",
+        "senderr": false,
+        "headers": [],
+        "x": 760,
+        "y": 1000,
+        "wires": [
+            [
+                "0dab01bf8e073e90"
+            ]
+        ]
+    },
+    {
+        "id": "0dab01bf8e073e90",
+        "type": "debug",
+        "z": "1cbfc5021b2aa8e7",
+        "name": "debug 25",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "true",
+        "targetType": "full",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 940,
+        "y": 1000,
+        "wires": []
+    },
+    {
+        "id": "36c652bb4a221925",
+        "type": "function",
+        "z": "1cbfc5021b2aa8e7",
+        "name": "function 22",
+        "func": "function getRandomFloat(min, max) {\n    return Math.random() * (max - min) + min;\n}\n\nmsg.payload = getRandomFloat(-50, 150).toFixed(1)\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 560,
+        "y": 1000,
+        "wires": [
+            [
+                "9842d96c30429508"
+            ]
+        ]
+    },
+    {
+        "id": "60c4bb625f937f84",
+        "type": "http request",
+        "z": "1cbfc5021b2aa8e7",
+        "name": "IRSensor1-dist",
+        "method": "POST",
+        "ret": "txt",
+        "paytoqs": "ignore",
+        "url": "http://localhost:59986/api/v2/resource/IRSensor1/distance",
+        "tls": "",
+        "persist": false,
+        "proxy": "",
+        "insecureHTTPParser": false,
+        "authType": "",
+        "senderr": false,
+        "headers": [],
+        "x": 760,
+        "y": 1040,
+        "wires": [
+            [
+                "c0c33b349b5e94df"
+            ]
+        ]
+    },
+    {
+        "id": "c0c33b349b5e94df",
+        "type": "debug",
+        "z": "1cbfc5021b2aa8e7",
+        "name": "debug 26",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "true",
+        "targetType": "full",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 940,
+        "y": 1040,
+        "wires": []
+    },
+    {
+        "id": "d53f1160b0f15fba",
+        "type": "function",
+        "z": "1cbfc5021b2aa8e7",
+        "name": "function 23",
+        "func": "function getRandomFloat(min, max) {\n    return Math.random() * (max - min) + min;\n}\n\nmsg.payload = getRandomFloat(0, 500).toFixed(1)\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 560,
+        "y": 1040,
+        "wires": [
+            [
+                "60c4bb625f937f84"
+            ]
+        ]
+    },
+    {
+        "id": "51996804528d5901",
+        "type": "http request",
+        "z": "1cbfc5021b2aa8e7",
+        "name": "IRSensor1-intrusion",
+        "method": "POST",
+        "ret": "txt",
+        "paytoqs": "ignore",
+        "url": "http://localhost:59986/api/v2/resource/IRSensor1/intrusion_detected",
+        "tls": "",
+        "persist": false,
+        "proxy": "",
+        "insecureHTTPParser": false,
+        "authType": "",
+        "senderr": false,
+        "headers": [],
+        "x": 800,
+        "y": 1080,
+        "wires": [
+            [
+                "8e1cccc6613dcbdf"
+            ]
+        ]
+    },
+    {
+        "id": "8e1cccc6613dcbdf",
+        "type": "debug",
+        "z": "1cbfc5021b2aa8e7",
+        "name": "debug 27",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "true",
+        "targetType": "full",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 1020,
+        "y": 1080,
+        "wires": []
+    },
+    {
+        "id": "e40ea5821fd0e2ea",
+        "type": "function",
+        "z": "1cbfc5021b2aa8e7",
+        "name": "function 24",
+        "func": "msg.payload = Math.random() > 0.5;\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 570,
+        "y": 1080,
+        "wires": [
+            [
+                "51996804528d5901"
+            ]
+        ]
+    },
+    {
+        "id": "19465f14953159f5",
+        "type": "http request",
+        "z": "1cbfc5021b2aa8e7",
+        "name": "UltrasonicSensor1",
+        "method": "POST",
+        "ret": "txt",
+        "paytoqs": "ignore",
+        "url": "http://localhost:59986/api/v2/resource/UltrasonicSensor1/distance",
+        "tls": "",
+        "persist": false,
+        "proxy": "",
+        "insecureHTTPParser": false,
+        "authType": "",
+        "senderr": false,
+        "headers": [],
+        "x": 710,
+        "y": 1160,
+        "wires": [
+            [
+                "0457eb7acc2a4400"
+            ]
+        ]
+    },
+    {
+        "id": "0457eb7acc2a4400",
+        "type": "debug",
+        "z": "1cbfc5021b2aa8e7",
+        "name": "debug 28",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "true",
+        "targetType": "full",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 900,
+        "y": 1160,
+        "wires": []
+    },
+    {
+        "id": "c3fa19b45cf853ba",
+        "type": "function",
+        "z": "1cbfc5021b2aa8e7",
+        "name": "function 25",
+        "func": "function getRandomFloat(min, max) {\n    return Math.random() * (max - min) + min;\n}\n\nmsg.payload = getRandomFloat(0, 2000).toFixed(1)\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 500,
+        "y": 1160,
+        "wires": [
+            [
+                "19465f14953159f5"
+            ]
+        ]
+    },
+    {
+        "id": "b0f010de9381e8ab",
+        "type": "http request",
+        "z": "1cbfc5021b2aa8e7",
+        "name": "WaterTankDevice1-level",
+        "method": "POST",
+        "ret": "txt",
+        "paytoqs": "ignore",
+        "url": "http://localhost:59986/api/v2/resource/WaterTankDevice1/level",
+        "tls": "",
+        "persist": false,
+        "proxy": "",
+        "insecureHTTPParser": false,
+        "authType": "",
+        "senderr": false,
+        "headers": [],
+        "x": 650,
+        "y": 1220,
+        "wires": [
+            [
+                "9742421e7ca636ab"
+            ]
+        ]
+    },
+    {
+        "id": "9742421e7ca636ab",
+        "type": "debug",
+        "z": "1cbfc5021b2aa8e7",
+        "name": "debug 29",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "true",
+        "targetType": "full",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 920,
+        "y": 1220,
+        "wires": []
+    },
+    {
+        "id": "b1772a7024dc422f",
+        "type": "function",
+        "z": "1cbfc5021b2aa8e7",
+        "name": "function 26",
+        "func": "function getRandomFloat(min, max) {\n    return Math.random() * (max - min) + min;\n}\n\nmsg.payload = getRandomFloat(0, 5000).toFixed(1)\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 420,
+        "y": 1220,
+        "wires": [
+            [
+                "b0f010de9381e8ab"
+            ]
+        ]
+    },
+    {
+        "id": "f0a1b0b28b1e4d79",
+        "type": "http request",
+        "z": "1cbfc5021b2aa8e7",
+        "name": "WaterTankDevice1-flowrate",
+        "method": "POST",
+        "ret": "txt",
+        "paytoqs": "ignore",
+        "url": "http://localhost:59986/api/v2/resource/WaterTankDevice1/flowrate",
+        "tls": "",
+        "persist": false,
+        "proxy": "",
+        "insecureHTTPParser": false,
+        "authType": "",
+        "senderr": false,
+        "headers": [],
+        "x": 640,
+        "y": 1260,
+        "wires": [
+            [
+                "1106415bd10b771f"
+            ]
+        ]
+    },
+    {
+        "id": "1106415bd10b771f",
+        "type": "debug",
+        "z": "1cbfc5021b2aa8e7",
+        "name": "debug 30",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "true",
+        "targetType": "full",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 920,
+        "y": 1260,
+        "wires": []
+    },
+    {
+        "id": "43ee43d07badb4f6",
+        "type": "function",
+        "z": "1cbfc5021b2aa8e7",
+        "name": "function 27",
+        "func": "function getRandomFloat(min, max) {\n    return Math.random() * (max - min) + min;\n}\n\nmsg.payload = getRandomFloat(0, 200).toFixed(1)\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 400,
+        "y": 1260,
+        "wires": [
+            [
+                "f0a1b0b28b1e4d79"
+            ]
+        ]
+    },
+    {
+        "id": "521ca24a36211ea9",
+        "type": "function",
+        "z": "1cbfc5021b2aa8e7",
+        "name": "function 28",
+        "func": "function getRandomFloat(min, max) {\n    return Math.random() * (max - min) + min;\n}\n\nmsg.payload = getRandomFloat(0, 10000).toFixed(1)\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 290,
+        "y": 1320,
+        "wires": [
+            [
+                "70fe1e38c5a6cd84"
+            ]
+        ]
+    },
+    {
+        "id": "70fe1e38c5a6cd84",
+        "type": "http request",
+        "z": "1cbfc5021b2aa8e7",
+        "name": "GasSensor1",
+        "method": "POST",
+        "ret": "txt",
+        "paytoqs": "ignore",
+        "url": "http://localhost:59986/api/v2/resource/GasSensor1/concentration",
+        "tls": "",
+        "persist": false,
+        "proxy": "",
+        "insecureHTTPParser": false,
+        "authType": "",
+        "senderr": false,
+        "headers": [],
+        "x": 480,
+        "y": 1320,
+        "wires": [
+            [
+                "05a04f3c705b43c7"
+            ]
+        ]
+    },
+    {
+        "id": "05a04f3c705b43c7",
+        "type": "debug",
+        "z": "1cbfc5021b2aa8e7",
+        "name": "debug 31",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "true",
+        "targetType": "full",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 690,
+        "y": 1320,
+        "wires": []
+    },
+    {
+        "id": "432c4549d463c8c4",
+        "type": "function",
+        "z": "1cbfc5021b2aa8e7",
+        "name": "function 29",
+        "func": "function getRandomFloat(min, max) {\n    return Math.random() * (max - min) + min;\n}\n\nmsg.payload = getRandomFloat(0, 200).toFixed(1)\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 190,
+        "y": 1380,
+        "wires": [
+            [
+                "c73093e8cf784102"
+            ]
+        ]
+    },
+    {
+        "id": "c73093e8cf784102",
+        "type": "http request",
+        "z": "1cbfc5021b2aa8e7",
+        "name": "GasSensor1",
+        "method": "POST",
+        "ret": "txt",
+        "paytoqs": "ignore",
+        "url": "http://localhost:59986/api/v2/resource/SoundSensor1/level",
+        "tls": "",
+        "persist": false,
+        "proxy": "",
+        "insecureHTTPParser": false,
+        "authType": "",
+        "senderr": false,
+        "headers": [],
+        "x": 380,
+        "y": 1380,
+        "wires": [
+            [
+                "123d30398895e655"
+            ]
+        ]
+    },
+    {
+        "id": "123d30398895e655",
+        "type": "debug",
+        "z": "1cbfc5021b2aa8e7",
+        "name": "debug 32",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "true",
+        "targetType": "full",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 590,
+        "y": 1380,
+        "wires": []
+    }
+]
