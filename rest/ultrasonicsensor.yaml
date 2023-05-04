@@ -1,0 +1,15 @@
+name: UltrasonicSensor1
+description: Measures the distance
+manufacturer: LT
+model: US_1234
+labels:
+  - distance
+  - REST
+deviceResources:
+  - name: distance
+    description: The distance measured
+    properties:
+      valueType: Float32
+      readWrite: RW
+      units: meters
+  

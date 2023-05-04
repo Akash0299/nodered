@@ -1,0 +1,15 @@
+name: SoundSensor1
+description: Detects the sound levels
+manufacturer: LT
+model: SS_1234
+labels:
+  - sound
+  - REST
+deviceResources:
+  - name: level
+    description: The sound levels
+    properties:
+      valueType: Float32
+      readWrite: RW
+      units: decibels
+  

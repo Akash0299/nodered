@@ -1,0 +1,26 @@
+name: Accelerometer1
+description: Measures the acceleration value
+manufacturer: LT
+model: AM_1234
+labels:
+  - acceleration
+  - REST
+deviceResources:
+  - name: x
+    description: The x-axis acceleration value
+    properties:
+      valueType: Float32
+      readWrite: RW
+      units: metres per second squared
+  - name: y
+    description: The y-axis acceleration value
+    properties:
+      valueType: Float32
+      readWrite: RW
+      units: metres per second squared
+  - name: z
+    description: The z-axis acceleration value
+    properties:
+      valueType: Float32
+      readWrite: RW
+      units: metres per second squared

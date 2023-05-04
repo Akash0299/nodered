@@ -1,0 +1,13 @@
+name: MotionSensor1
+description: Measures the motion status
+manufacturer: LT
+model: MS_1234
+labels:
+  - motion
+  - REST
+deviceResources:
+  - name: motion
+    description: The current motion detection status
+    properties:
+      valueType: Bool
+      readWrite: RW

@@ -1,0 +1,22 @@
+name: WaterTankDevice1
+description: Monitors the water tank 
+manufacturer: LT
+model: WTD_1234
+labels:
+  - waterlevel
+  - waterflow
+  - REST
+deviceResources:
+  - name: level
+    description: The current level of water in tank
+    properties:
+      valueType: Float32
+      readWrite: RW
+      units: meters
+  - name: flowrate
+    description: The rate of water flow in tank
+    properties:
+      valueType: Float32
+      readWrite: RW
+      units: litres per minute
+

@@ -1,0 +1,26 @@
+name: GPSSensor1
+description: Measures the location
+manufacturer: LT
+model: GPS_1234
+labels:
+  - location
+  - REST
+deviceResources:
+  - name: latitude
+    description: The current latitude value
+    properties:
+      valueType: Float32
+      readWrite: RW
+      units: degrees
+  - name: longitude
+    description: The current longitude value
+    properties:
+      valueType: Float32
+      readWrite: RW
+      units: degrees
+  - name: altitude
+    description: The gps altitude value
+    properties:
+      valueType: Float32
+      readWrite: RW
+      units: meters

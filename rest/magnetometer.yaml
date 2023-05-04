@@ -1,0 +1,26 @@
+name: Magmeter1
+description: Measures the magnetic field
+manufacturer: LT
+model: MM_1234
+labels:
+  - magnetic field
+  - REST
+deviceResources:
+  - name: x
+    description: The x-axis magnetic field value
+    properties:
+      valueType: Float32
+      readWrite: RW
+      units: microtesla
+  - name: y
+    description: The y-axis magnetic field value
+    properties:
+      valueType: Float32
+      readWrite: RW
+      units: microtesla
+  - name: z
+    description: The z-axis magnetic field value
+    properties:
+      valueType: Float32
+      readWrite: RW
+      units: microtesla

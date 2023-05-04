@@ -1,0 +1,247 @@
+name: "waterpipelinerestdemo"
+manufacturer: "LT"
+model: "waterpipeline"
+labels:
+  - "rest"
+ 
+description: "Parameter metrics for waterpipeline"
+
+deviceResources:
+      -
+        name: location
+        description: "location of the pipe"
+        properties:
+            value:
+             { type: "String", size: "1", readWrite: "RW", default: ""}
+      -
+        name: latitude
+        description: "latitude"
+        properties:
+            value:
+             { type: "Float32", size: "2", readWrite: "RW",floatEncoding: "eNotation"}
+      -
+        name: longitude
+        description: "longitude"
+        properties:
+            value:
+             { type: "Float32", size: "2", readWrite: "RW",floatEncoding: "eNotation"}
+      -
+        name: material
+        description: "pipe material used"
+        properties:
+            value:
+             { type: "String", size: "1", readWrite: "RW"}
+      -
+        name: length
+        description: "length of the pipe"
+        properties:
+            value:
+             { type: "Float32", size: "2", readWrite: "RW", minimum: "0", maximum: "10000",floatEncoding: "eNotation"}
+
+      -
+        name: width
+        description: "width of the pipe"
+        properties:
+            value:
+             { type: "Float32", size: "2", readWrite: "RW", minimum: "0", maximum: "10000",floatEncoding: "eNotation"}
+      -
+        name: weight
+        description: "weigth of the pipe"
+        properties:
+            value:
+             { type: "Float32", size: "2", readWrite: "RW", minimum: "0", maximum: "10000",floatEncoding: "eNotation"}
+      -
+        name: pipestrength
+        description: "Strength of the pipe"
+        properties:
+            value:
+             { type: "Float32", size: "2", readWrite: "RW", minimum: "0", maximum: "10000",floatEncoding: "eNotation"}
+      -
+        name: pipedensity
+        description: "density of the pipe"
+        properties:
+            value:
+             { type: "Float32", size: "2", readWrite: "RW", minimum: "0", maximum: "10000",floatEncoding: "eNotation"}
+      -
+        name: pipevalvestatus
+        description: "pipe valve status"
+        properties:
+            value:
+             { type: "String", size: "1", readWrite: "RW"}
+
+             
+deviceCommands:
+      - 
+        name: "location"
+        get:
+           - { operation: "get", object: "location", deviceResource: "location" }
+      - 
+        name: "longitude"
+        get:
+           - { operation: "get", object: "longitude", deviceResource: "longitude" }
+      - 
+        name: "latitude"
+        get:
+           - { operation: "get", object: "latitude", deviceResource: "latitude" }
+      - 
+        name: "material"
+        get:
+           - { operation: "get", object: "material", deviceResource: "material" }
+      - 
+        name: "length"
+        get:
+           - { operation: "get", object: "length", deviceResource: "length" }
+      - 
+        name: "width"
+        get:
+           - { operation: "get", object: "width", deviceResource: "width" }
+      - 
+        name: "weight"
+        get:
+           - { operation: "get", object: "weight", deviceResource: "weight" }
+      - 
+        name: "pipestrength"
+        get:
+           - { operation: "get", object: "pipestrength", deviceResource: "pipestrength" }
+      - 
+        name: "pipedensity"
+        get:
+           - { operation: "get", object: "pipedensity", deviceResource: "pipedensity" }
+      - 
+        name: "pipevalvestatus"
+        get:
+           - { operation: "get", object: "pipevalvestatus", deviceResource: "pipevalvestatus" }
+          
+coreCommands:
+      -
+        name: location
+        get:
+            path: "/api/v1/device/{deviceId}/location"
+            responses:
+                 -
+                    code: "200"
+                    description: "Get location"
+                    expectedValues: ["location"] 
+                 -
+                    code: "503"
+                    description: "service unavailable"
+                    expectedValues: [] 
+      -
+        name: longitude
+        get:
+            path: "/api/v1/device/{deviceId}/longitude"
+            responses:
+                 -
+                    code: "200"
+                    description: "Get longitude"
+                    expectedValues: ["longitude"] 
+                 -
+                    code: "503"
+                    description: "service unavailable"
+                    expectedValues: [] 
+      -
+        name: latitude
+        get:
+            path: "/api/v1/device/{deviceId}/latitude"
+            responses:
+                 -
+                    code: "200"
+                    description: "Get latitude"
+                    expectedValues: ["latitude"] 
+                 -
+                    code: "503"
+                    description: "service unavailable"
+                    expectedValues: []                    
+      -
+        name: material
+        get:
+            path: "/api/v1/device/{deviceId}/material"
+            responses:
+                 -
+                    code: "200"
+                    description: "Get material"
+                    expectedValues: ["material"] 
+                 -
+                    code: "503"
+                    description: "service unavailable"
+                    expectedValues: [] 
+      -
+        name: length
+        get:
+            path: "/api/v1/device/{deviceId}/length"
+            responses:
+                 -
+                    code: "200"
+                    description: "Get length"
+                    expectedValues: ["length"] 
+                 -
+                    code: "503"
+                    description: "service unavailable"
+                    expectedValues: []                    
+      -
+        name: width
+        get:
+            path: "/api/v1/device/{deviceId}/width"
+            responses:
+                 -
+                    code: "200"
+                    description: "Get width"
+                    expectedValues: ["width"] 
+                 -
+                    code: "503"
+                    description: "service unavailable"
+                    expectedValues: [] 
+      -
+        name: weight
+        get:
+            path: "/api/v1/device/{deviceId}/weight"
+            responses:
+                 -
+                    code: "200"
+                    description: "Get weight"
+                    expectedValues: ["weight"] 
+                 -
+                    code: "503"
+                    description: "service unavailable"
+                    expectedValues: [] 
+      -
+        name: pipestrength
+        get:
+            path: "/api/v1/device/{deviceId}/pipestrength"
+            responses:
+                 -
+                    code: "200"
+                    description: "Get pipestrength"
+                    expectedValues: ["pipestrength"] 
+                 -
+                    code: "503"
+                    description: "service unavailable"
+                    expectedValues: []                    
+ 
+      -
+        name: pipedensity
+        get:
+            path: "/api/v1/device/{deviceId}/pipedensity"
+            responses:
+                 -
+                    code: "200"
+                    description: "Get pipedensity"
+                    expectedValues: ["pipedensity"] 
+                 -
+                    code: "503"
+                    description: "service unavailable"
+                    expectedValues: [] 
+      -
+        name: pipevalvestatus
+        get:
+            path: "/api/v1/device/{deviceId}/pipevalvestatus"
+            responses:
+                 -
+                    code: "200"
+                    description: "Get pipevalvestatus"
+                    expectedValues: ["pipevalvestatus"] 
+                 -
+                    code: "503"
+                    description: "service unavailable"
+                    expectedValues: []                    
+ 

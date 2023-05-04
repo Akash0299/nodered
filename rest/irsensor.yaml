@@ -1,0 +1,25 @@
+name: IRSensor1
+description: Infrared Sensor used for detecting infrared radiations
+manufacturer: LT
+model: IRS_1234
+labels:
+  - infrared
+  - REST
+deviceResources:
+  - name: temperature
+    description: The temperature value detected
+    properties:
+      valueType: Float32
+      readWrite: RW
+      units: degrees Celsius
+  - name: distance
+    description: The distance value measured
+    properties:
+      valueType: Float32
+      readWrite: RW
+      units: centimeters
+  - name: intrusion_detected
+    description: Indicates if an intrusion is detected
+    properties:
+      valueType: Bool
+      readWrite: RW

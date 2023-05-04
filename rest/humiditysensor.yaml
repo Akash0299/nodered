@@ -1,0 +1,15 @@
+name: HumiditySensor1
+description: Measures the humidity
+manufacturer: LT
+model: HS_1234
+labels:
+  - humidity
+  - REST
+deviceResources:
+  - name: humidity
+    description: The current humidity
+    properties:
+      valueType: Float32
+      readWrite: RW
+      units: Percentage
+  

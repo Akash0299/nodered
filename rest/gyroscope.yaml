@@ -1,0 +1,26 @@
+name: Gyroscope1
+description: Measures the angular velocity
+manufacturer: LT
+model: GS_1234
+labels:
+  - angularvelocity
+  - REST
+deviceResources:
+  - name: x
+    description: The x-axis angular velocity value
+    properties:
+      valueType: Float32
+      readWrite: RW
+      units: radians per second
+  - name: y
+    description: The y-axis angular velocity value
+    properties:
+      valueType: Float32
+      readWrite: RW
+      units: radians per second
+  - name: z
+    description: The z-axis angular velocity value
+    properties:
+      valueType: Float32
+      readWrite: RW
+      units: radians per second

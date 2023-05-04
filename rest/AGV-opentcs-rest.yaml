@@ -1,0 +1,47 @@
+name: OpenTCS-Vehicle
+description: This device represents a vehicle that is controlled by the OpenTCS fleet management system.
+manufacturer: OpenTCS
+model: Vehicle 1
+serialNumber: "123456789"
+labels:
+  - vehicle
+  - fleet management
+  - automated guided vehicle
+deviceResources:
+  - name: location
+    description: The current location of the vehicle.
+    properties:
+      valueType: String
+      readWrite: RW
+  - name: speed
+    description: The current speed of the vehicle.
+    properties:
+      valueType: Float32
+      readWrite: RW
+      units: meters per second
+  - name: batteryLevel
+    description: The current battery level of the vehicle.
+    properties:
+      valueType: Float32
+      readWrite: RW
+      units: percent
+  - name: loadHandlingDevice
+    description: The status of the vehicle load handling device (e.g. forklift, crane).
+    properties:
+      valueType: String
+      readWrite: RW
+  - name: jobStatus
+    description: The status of the vehicle current job.
+    properties:
+      valueType: String
+      readWrite: RW
+  - name: destination
+    description: The vehicle current destination.
+    properties:
+      valueType: String
+      readWrite: RW
+  - name: errors
+    description: The current error messages reported by the vehicle.
+    properties:
+      valueType: String
+      readWrite: RW

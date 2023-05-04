@@ -1,0 +1,15 @@
+name: PressureSensor1
+description: Measures the pressure
+manufacturer: LT
+model: PS_1234
+labels:
+  - pressure
+  - REST
+deviceResources:
+  - name: pressure
+    description: The current pressure
+    properties:
+      valueType: Float32
+      readWrite: RW
+      units: millibar
+  

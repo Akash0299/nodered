@@ -1,0 +1,16 @@
+name: GasSensor1
+description: Measures the gas concentration
+manufacturer: LT
+model: GASS_1234
+labels:
+  - concentration
+  - gas
+  - REST
+deviceResources:
+  - name: concentration
+    description: The concentration of the gas in the surrounding environment
+    properties:
+      valueType: Float32
+      readWrite: RW
+      units: parts per million
+  
